@@ -52,14 +52,17 @@ public class PayChannelFactory {
     }
 
     /**
-     * 动态注册AbstractChannelService
+     * 简单工厂获取对应支付渠道对象
      * @param channel
      * @param mode
      * @return
      */
     public AbstractChannelService getChannelService(String channel, String mode) {
+        //简单工厂获取支付方式对象
         PayModeService modeService = PayModeFactory.getPayMode(mode);
         String beanName = new StringBuffer(channel).append(mode).toString();
+
+        //动态注册AbstractChannelService&并返回对应的Bean
         AbstractChannelService channelService = (AbstractChannelService) ManualRegistBeanUtil.registerBean
                 ((ConfigurableApplicationContext) context, beanName, channelMap.get(channel), modeService);
         return channelService;
