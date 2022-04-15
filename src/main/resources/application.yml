@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/lerke2?useUnicode=true&characterEncoding=UTF8&useSSL=false&rewriteBatchedStatements=true&allowMultiQueries=true
+    username: lerke
+    password: hello1234
